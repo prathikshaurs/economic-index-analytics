@@ -45,17 +45,17 @@ Every model is documented and tested. Each one carries a description explaining 
 
 ![Platform comparison](docs/images/chart_platform_comparison.png)
 
-Developer (API) usage concentrates heavily in software engineering and IT operations, system administration, modifying software, testing programs, reviewing documentation. Consumer (Claude.ai) usage leans toward education and communication, helping students, career instruction, editing writing, answering customer questions. API usage is also more concentrated: a handful of engineering tasks dominate, while consumer usage is spread across many tasks.
+Developer (API) usage concentrates heavily in software engineering and IT operations, system administration, modifying software, testing programs, reviewing documentation. Consumer (Claude.ai) usage leans towards education and communication, helping students, career instruction, editing writing, answering customer questions, etc. API usage is also more concentrated: a handful of engineering tasks dominate, while consumer usage is spread across many tasks.
 
 The comparison is scoped to the 1,908 tasks present on **both** platforms, at the global level (the only geography level the API data provides), so every difference is computed from two real measurements.
 
-### 2. People mostly work *with* Claude.ai, rather than delegating to it
+### 2. People mostly work with Claude.ai, rather than delegating to it
 
 ![Collaboration modes](docs/images/chart_collaboration_modes.png)
 
 Grouping collaboration patterns into augmentation vs. automation, augmentation accounts for roughly **58%** of classified Claude.ai conversations and automation roughly **32%**. People predominantly collaborate with the model (learning, validating, iterating) rather than simply handing off tasks.
 
-> Note: the augmentation/automation grouping is my applied interpretation of the Economic Index's framing, not Anthropic's official categorization. The direction is consistent with what Anthropic has reported.
+Note: the augmentation/automation grouping is my applied interpretation of the Economic Index's framing, not Anthropic's official categorization. The direction is consistent with what Anthropic has reported.
 
 ---
 
@@ -63,9 +63,9 @@ Grouping collaboration patterns into augmentation vs. automation, augmentation a
 
 A few scoping choices were deliberate and are documented in the model files:
 
-- **Collaboration scoped to Claude.ai only.** The API platform had just 12 collaboration rows (vs. ~9,400 for Claude.ai), too sparse to analyze, so it's excluded with a documented reason rather than silently included.
-- **Platform comparison built on `onet_task`, not collaboration or task_success.** I originally expected to compare platforms on collaboration patterns, but validating coverage showed the API side was too sparse there. Task usage had solid coverage on both platforms, so the comparison was built there instead.
-- **Comparison limited to tasks on both platforms.** A task missing from one platform isn't reliably "zero", it may be below a reporting threshold, so single-platform tasks are excluded from the head-to-head and flagged as a possible follow-up.
+- **Collaboration scoped to Claude.ai only:** The API platform had just 12 collaboration rows (vs. ~9,400 for Claude.ai), too sparse to analyze, so it's excluded with a documented reason rather than silently included.
+- **Platform comparison built on onet_task, not collaboration or task_success:** I originally expected to compare platforms on collaboration patterns, but validating coverage showed the API side was too sparse there. Task usage had solid coverage on both platforms, so the comparison was built there instead.
+- **Comparison limited to tasks on both platforms:** A task missing from one platform isn't reliably "zero", it may be below a reporting threshold, so single-platform tasks are excluded from the head-to-head and flagged as a possible follow-up.
 
 ---
 
@@ -79,7 +79,7 @@ A few scoping choices were deliberate and are documented in the model files:
 
 ---
 
-## Running it yourself
+## How to Run it
 
 The raw data files are not committed (they're large and are Anthropic's to distribute). To reproduce:
 
@@ -105,7 +105,7 @@ dbt docs serve
 ---
 
 ## Walkthrough
-A short video walkthrough of the pipeline and findings is available: https://www.loom.com/share/fa0e840065174f7cba9443387177ad1f
+A short video walkthrough of the pipeline and findings is available [here] (https://www.loom.com/share/fa0e840065174f7cba9443387177ad1f)
 
 ---
 
