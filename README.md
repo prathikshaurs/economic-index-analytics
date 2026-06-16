@@ -105,7 +105,7 @@ dbt docs serve
 ---
 
 ## Walkthrough
-A short video walkthrough of the pipeline and findings is available [here] (https://www.loom.com/share/fa0e840065174f7cba9443387177ad1f)
+A short video walkthrough of the pipeline and findings is available [here](https://www.loom.com/share/fa0e840065174f7cba9443387177ad1f)
 
 ---
 
