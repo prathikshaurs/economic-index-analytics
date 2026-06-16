@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: mart_collaboration_modes
+    description: >
+      Presentation-ready collaboration analysis for Claude.ai, one row per
+      geography and collaboration pattern, with each pattern grouped into a
+      collaboration_mode (automation, augmentation, or unclassified).
+      The mode mapping applies the Anthropic Economic Index augmentation vs
+      automation lens as an interpretation: 'directive' is treated as
+      automation (user delegates), while learning, validation, task iteration,
+      and feedback loop are treated as augmentation (AI amplifies the user).
+      'none' and 'not_classified' are kept but labeled unclassified and are
+      excluded from headline augmentation/automation ratios downstream.
+      Scoped to Claude.ai; the API platform lacks sufficient collaboration data.
+    columns:
+      - name: collaboration_mode
+        description: "Augmentation, automation, or unclassified (applied AEI lens)."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['automation', 'augmentation', 'unclassified']
+
+      - name: collaboration_pattern
+        description: "The underlying collaboration pattern within the mode."
+        tests:
+          - not_null
+
+      - name: collaboration_count
+        description: "Number of Claude.ai conversations with this pattern in the geography."
+        tests:
+          - not_null
+
+      - name: collaboration_pct
+        description: "Percentage of the geography's conversations with this pattern."
+        tests:
+          - not_null
+
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - platform
+              - geo_id
+              - collaboration_pattern

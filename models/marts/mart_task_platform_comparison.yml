@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: mart_task_platform_comparison
+    description: >
+      Headline comparison of how O*NET task usage differs between Claude.ai
+      (consumer) and 1P API (developer) usage, one row per task. Compared at
+      global grain, the only geography level the API platform provides. The
+      non-task buckets 'none' and 'not_classified' are excluded. Scoped to the
+      1,908 tasks present on BOTH platforms so every difference is computed from
+      two real measurements; tasks appearing on only one platform are excluded
+      here and are a natural follow-up analysis. The difference column
+      (claude_ai_pct - api_pct) is positive for consumer-leaning tasks and
+      negative for developer-leaning tasks.
+    columns:
+      - name: task_name
+        description: "The O*NET task statement."
+        tests:
+          - not_null
+          - unique
+
+      - name: claude_ai_pct
+        description: "Percentage of Claude.ai global usage going to this task."
+        tests:
+          - not_null
+
+      - name: api_pct
+        description: "Percentage of 1P API global usage going to this task."
+        tests:
+          - not_null
+
+      - name: difference
+        description: "claude_ai_pct minus api_pct. Positive = consumer-leaning, negative = developer-leaning."
+        tests:
+          - not_null

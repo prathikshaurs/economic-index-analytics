@@ -1,0 +1,20 @@
+# Python virtual environment
+venv/
+
+# dbt artifacts
+target/
+dbt_packages/
+logs/
+
+# DuckDB database
+*.duckdb
+*.duckdb.wal
+
+# Raw data files (large; download separately per README)
+data/raw/*.csv
+
+# Generated exports
+exports/
+
+# Scratch
+peek.py

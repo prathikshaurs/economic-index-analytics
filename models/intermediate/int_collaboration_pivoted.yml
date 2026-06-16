@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: int_collaboration_pivoted
+    description: >
+      Collaboration patterns pivoted from long to wide, one row per
+      geography and collaboration pattern, with count and percentage as
+      columns. Scoped to Claude.ai only: the 1P API platform has just 12
+      collaboration rows (vs ~9,400 for Claude.ai), too sparse to analyze,
+      so it is deliberately excluded here.
+    columns:
+      - name: collaboration_pattern
+        description: "Human-AI collaboration pattern (e.g. directive, learning, validation)."
+        tests:
+          - not_null
+
+      - name: collaboration_count
+        description: "Number of Claude.ai conversations with this pattern in the geography."
+        tests:
+          - not_null
+
+      - name: collaboration_pct
+        description: "Percentage of the geography's conversations with this pattern (sums to ~100 per geography)."
+        tests:
+          - not_null
+
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - platform
+              - geo_id
+              - collaboration_pattern

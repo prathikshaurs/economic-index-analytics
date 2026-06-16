@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_aei_usage
+    description: >
+      Unified staging model combining Claude.ai consumer and 1P API usage
+      from the Anthropic Economic Index. Each row is a single metric value
+      identified by platform, geography, facet, variable, and cluster_name.
+    columns:
+      - name: platform
+        description: "Deployment context the usage came from: claude_ai or api."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['claude_ai', 'api']
+
+      - name: facet
+        description: "Analysis dimension, e.g. collaboration, onet_task, country."
+        tests:
+          - not_null
+
+      - name: variable
+        description: "Metric name within the facet, e.g. collaboration_pct."
+        tests:
+          - not_null
+
+      - name: value
+        description: "Numeric value of the metric."
+        tests:
+          - not_null
