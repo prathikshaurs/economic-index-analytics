@@ -109,4 +109,4 @@ A short video walkthrough of the pipeline and findings is available [here](https
 
 ---
 
-*Built as an independent project using Anthropic's publicly released, CC-BY-licensed Economic Index data.*
+*Built as an independent project using Anthropic's publicly released Economic Index data, shared under a Creative Commons license.*
